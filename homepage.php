@@ -51,9 +51,6 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    * {
-        box-sizing: border-box;
-    }
 
     .bg-image {
         background-image: url("campus.jpg");
