@@ -1,0 +1,172 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    background-color: #000;
+    color: #AE0000; /* Darker gold color */
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: #AE0000; /* Gold color for the header */
+    padding: 20px;
+    position: fixed; /* Make the header fixed at the top */
+    top: 0; /* Position it at the top of the viewport */
+    width: 100%; /* Make it full-width */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+/* Adjust the padding of the main content to avoid overlapping with the fixed header */
+main {
+    padding: 70px 20px 20px; /* 70px top padding to account for the fixed header */
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo a {
+    text-decoration: none;
+    color: #000; /* Black text color for the logo */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-right: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #000; /* Black text color for navbar links */
+    transition: color 0.3s;
+}
+
+.navbar-menu a:hover{
+    color: white;
+}
+
+.navbar-logo a{
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar-logo a:hover{
+    color: white;
+}
+
+/* Main content styles */
+.main {
+    padding: 0px;
+}
+
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%; /* Longer search bar */
+}
+
+button {
+    background-color: #AE0000; /* Darker gold color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.book-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book-card {
+    background-color: #AE0000; /* Darker gold color */
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px; /* Shorter book card */
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+.book-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* ... Your existing CSS code ... */
+
+/* Search button styles */
+/* Search button styles */
+button{
+    background-color: #AE0000; /* Darker gold color */
+    color: #fff;
+        padding: 10px 20px;
+    border: 1px solid black; /* Add black border */
+    border-radius: 250px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for smooth color and border change */
+}
+.my-search {
+    background-color: #AE0000; /* Darker gold color */
+    color: #fff;
+        padding: 10px 20px;
+    border: 1px solid black; /* Add black border */
+    border-radius: 250px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for smooth color and border change */
+}
+
+/* Change button color and border color to white on hover */
+button:hover{
+    background-color: #fff; /* White background on hover */
+    color: #AE0000; /* Darker gold text color on hover */
+    border-color: #AE0000; /* White border on hover */
+}
+
+.my-search:hover{
+    background-color: #fff; /* White background on hover */
+    color: #AE0000; /* Darker gold text color on hover */
+    border-color: #AE0000; /* White border on hover */
+}
+/* Book card styles */
+.book-card {
+    background-color: #AE0000; /* Darker gold color */
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px; /* Shorter book card */
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s; /* Add transition for smooth color change */
+}
+
+/* Change book card color to white on hover */
+.book-card:hover {
+    background-color: #fff; /* White background on hover */
+    color: #AE0000; /* Darker gold text color on hover */
+}

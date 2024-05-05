@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-	if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
+	if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin'] || $_SESSION['type'] === 'student' || $_SESSION['type'] === 'teacher') {
         header("Location: login.php");
         exit();
     }
@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Admin Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet">
 </head>
@@ -29,11 +29,15 @@
 <section class="home">
     <div class="form_container">
     <div class="form login_form">
-    <h2 style="margin-top: 0px;">Select an Option</h2>
+    <h2 style="margin-top: 0px;">Welcome Admin<br>Select an Option</h2>
     <div class="container">
         <div class="dropdown">
             <button class="option-btn dropbtn">Options <span class="arrow">&#9662;</span></button>
             <div class="dropdown-content">
+                <a href="userupdate.php">Single User Update</a>
+                <a href="userupdate2.php">Multiple User Updates</a>
+                <a href="syllabusupdate.php">Single Subject Update</a>
+                <a href="syllabusupdate2.php">Multiple Subject Updates</a>
                 <a href="nav.php">Study Materials</a>
                 <a href="books.php">Search Books</a>
                 <a href="todo.php">Scheduler</a>
@@ -45,17 +49,5 @@
 </div>
     </div>
 </section>
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

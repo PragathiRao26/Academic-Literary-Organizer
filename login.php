@@ -10,7 +10,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGNUP</title>
+    <title>LOGIN</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet">
 </head>
@@ -25,8 +25,8 @@ session_start();
     <section class="home">
         <div class="form_container">
             <div class="form login_form">
-                <form method="POST" name="Logform" onsubmit="signup.php">
-                    <h2>Sign Up</h2>
+                <form method="POST" name="Logform" onsubmit="login.php">
+                    <h2>Login</h2>
                     <div class="input_box">
                         <input type="email" name="email" placeholder="Enter your email" required />
                         <i class="uil uil-envelope-alt email"></i>
@@ -36,8 +36,8 @@ session_start();
                         <i class="uil uil-lock password"></i>
                     </div>
                     <div class="button_container">
-                        <button class="signupbtn" type="submit">Submit</button>
-                        <button class="loginbtn" onclick="location.href='login.php';">Login</button>
+                        <button class="loginbtn" type="submit">Submit</button>
+                        <button class="signupbtn" onclick="location.href='signup.php';">Signup</button>
                     </div>
                 </form>
             </div>
@@ -61,11 +61,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     // Retrieving the email and password from the form submission
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $sql = "INSERT INTO `userdata` (`Emailid`, `Password`, `Type`, `name`) VALUES ('$email', '$password', 'student', '$Name')";
+
+    // Query to check if the email and password exist in the database
+    $sql = "SELECT Type,name FROM Userdata WHERE Emailid = '$email' AND Password = '$password'";
     $result = $conn->query($sql);
-    echo "<br><br><span style='color: green;'>New User Added</span>";
+
+    // Checking if a row was returned
+    if ($result->num_rows > 0) {
+        // Valid credentials
+        $row = $result->fetch_assoc();
+        $userType = $row['Type'];
+	$_SESSION['type'] = $userType;
+        $name = $row['name'];
+	$_SESSION['username']=$name;      
+        $_SESSION['loggedin'] = true;
+                
+        // Perform actions based on user type (student, teacher, admin)
+        if ($userType === 'student' || $userType === 'Student') {
+            // Student login logic
+		echo '<script>window.location.href = "homepage.php";</script>';
+        }
+        elseif ($userType === 'admin'|| $userType === 'Admin') {
+            // Admin login logic
+            echo '<script>window.location.href = "adminpg.php";</script>';
+        }
+    } else {
+        // Invalid credentials
+        echo "<br><br><span style='color: red;'>Invalid email or password.</span>";
+    }
+
+    // Closing the database connection
     $conn->close();
-}?>
+}
+?>
         </div>
     </section>
 </body>
